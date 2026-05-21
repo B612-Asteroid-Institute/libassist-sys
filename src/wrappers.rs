@@ -37,9 +37,9 @@ impl Ephemeris {
     /// Raw pointer to the underlying `assist_ephem`. Useful for direct FFI calls.
     ///
     /// Returns a `*const` pointer because `Ephemeris` implements `Sync` on the
-    /// premise that the underlying data is read-only after construction. Use
-    /// [`pointer::cast_mut`] at the call site if the target FFI signature
-    /// requires `*mut`; that cast is the caller's assertion of unique access.
+    /// premise that the underlying data is read-only after construction. Call
+    /// `.cast_mut()` at the call site if the target FFI signature requires
+    /// `*mut`; that cast is the caller's assertion of unique access.
     pub fn as_ptr(&self) -> *const ffi::assist_ephem {
         self.ptr
     }
