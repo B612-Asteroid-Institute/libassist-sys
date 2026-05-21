@@ -1,0 +1,11 @@
+/target
+
+# IDE / editor
+.idea/
+.vscode/
+*.swp
+*~
+
+# OS junk
+.DS_Store
+Thumbs.db

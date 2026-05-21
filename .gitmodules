@@ -1,0 +1,3 @@
+[submodule "vendor/assist"]
+	path = vendor/assist
+	url = https://github.com/matthewholman/assist.git

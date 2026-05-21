@@ -1,0 +1,45 @@
+[package]
+name = "libassist-sys"
+version = "1.2.0"
+edition = "2024"
+rust-version = "1.85.0"
+description = "Raw FFI bindings and safe RAII wrappers for the ASSIST ephemeris-driven N-body integrator"
+authors = [
+    "Joachim Moeyens <joachim@b612foundation.org>",
+    "Alec Koumjian <alec@b612foundation.org>",
+    "Kathleen Kiker <kathleen@b612foundation.org>",
+    "Nate Tellis <nate@b612foundation.org>",
+]
+repository = "https://github.com/B612-Asteroid-Institute/libassist-sys"
+homepage = "https://asteroid.institute/"
+documentation = "https://docs.rs/libassist-sys"
+license = "GPL-3.0"
+links = "assist"
+
+# Whitelist of files shipped to crates.io. Everything under vendor/assist/docs/,
+# jupyter examples, and python packaging is excluded — the build only needs
+# the C sources + headers + upstream license.
+include = [
+    "src/**/*.rs",
+    "src/**/*.c",
+    "src/**/*.h",
+    "build.rs",
+    "Cargo.toml",
+    "LICENSE",
+    "tests/**/*.rs",
+    "vendor/assist/src/*.c",
+    "vendor/assist/src/*.h",
+    "vendor/assist/LICENSE",
+    "vendor/assist/version.txt",
+]
+
+[package.metadata.vendored]
+assist = "1.2.0"
+
+[build-dependencies]
+cc = "1"
+
+[dependencies]
+libc = "0.2"
+thiserror = "2"
+librebound-sys = "4.6"
